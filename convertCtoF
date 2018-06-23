@@ -1,5 +1,5 @@
 C = input('Please tell me what the temperature is outside in Celcius\n')
 
-F = (int(C) * (9/5)) + 32
+F = (float(C) * (9/5)) + 32
 
 print('The temperature outside is currently',F,'degrees Fahrenheit!')
