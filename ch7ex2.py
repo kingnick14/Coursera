@@ -6,14 +6,15 @@ confFlat = 0.0
 try:
     fhand = open(fname)
 except:
+    if fname == 'na na boo boo':
+        print ("NA NA BOO BOO TO YOU - You have been punk'd!")
+        exit()
     print ('Unable to open', fname)
     exit()
 
 for line in fhand:
-    #line = line.rstrip()
-    if line.find('X-DSPAM-Confidence:'):
-        firstPos = line.find('X-DSPAM-Confidence:')
-        print(firstPos)#endPos =
+    if not line.find('X-DSPAM-Confidence:') == -1:
+        firstPos = line.find(':')
         conf = line[firstPos+1:]
         confFloat = float(conf)
         confTotal = confTotal + confFloat
@@ -21,4 +22,9 @@ for line in fhand:
 
 
 avgConf = confTotal / ccount
-print('Average spam confidence:', avgConf)
+
+writtenFile = open('aaaaaaaaaaaaaaa.txt','w')
+print('Average spam confidence :' + str(avgConf))
+lineWriter = 'Average spam confidence: ' + str(avgConf)
+writtenFile.write(lineWriter)
+writtenFile.close()
