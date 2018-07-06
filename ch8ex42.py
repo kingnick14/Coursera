@@ -4,9 +4,9 @@ ddList = []
 for line in text:
     line = line.rstrip()
     words = line.split()
-    for i in range(len(wordList)):
-        if words in wordList: continue
-        wordList = wordList + words
+    for i in range(len(words)):
+        if words[i] in wordList: continue
+        wordList.append(words[i])
 
 wordList.sort()
 
@@ -17,6 +17,6 @@ wordList.sort()
 #        continue
 #print(ddList)
 
-print(len(wordList))
+print(wordList)
 
     #list.append(NEW WORD)
