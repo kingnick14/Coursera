@@ -7,4 +7,4 @@ for line in text:
     print(words[1])
     count = count + 1
 
-print('there were', count, 'lines int he file with From as the first word')
+print('there were', count, 'lines in the file with From as the first word')
