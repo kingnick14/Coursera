@@ -18,5 +18,5 @@ try:
 
     mysock.close()
 
-except:
+except socket.gaierror:
     print('Oops!  That was no valid URL.  Try again...')
