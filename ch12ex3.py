@@ -22,20 +22,30 @@
 #     print('Oops!  That was no valid URL.  Try again...')
 
 import urllib.request
-
-
+import re
 inp = urllib.request.urlopen(input('Enter a URL:'))
+
 counts = dict()
 count = 0
-for line in inp:
-    words = line.decode().split()
-    for word in words:
-        print(word)
-        for chars in words:
-            count = count + 1
-            #if count < 3000: print(chars)
-print(inp)
-#print(len(inp))
-print(count)
+tipper = True
+
+
+text = str(inp.read())
+cleanedtext = re.sub(r'<.+?>',r'',text)
+cleanedtext = re.sub(r'\\n|\\t|\\',r'',cleanedtext)
+print(cleanedtext[:3000])
+
+
+# for line in inp:
+#     print(line.decode().strip())
+#     print(len(line))
+#     words = line.decode().split()
+#     for word in words:
+#         #print(word)
+#         for chars in words:
+#             count = count + 1
+#             #if count < 3000: print(chars)
+
+print('\n\n',len(cleanedtext))
 
 #     inpSocket = inp.split('/')
