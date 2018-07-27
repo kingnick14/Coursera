@@ -9,11 +9,11 @@ for line in hand:
     if len(x) > 0 : lst = lst + x
 
 
-lst = [float(num) for num in lst]
+#lst = [float(num) for num in lst]
 ### not sure why the above works (found online) but the below doesn't.
 
-#for num in lst:
-#    num = float(num)
+for num in lst:
+    lst[num] = float(num)
 
 average = sum(lst) / len(lst)
 
